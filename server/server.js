@@ -13,3 +13,13 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+const { poolPromise } = require("./config/db");
+
+poolPromise
+  .then(() => {
+    console.log("Connected to SQL Server");
+  })
+  .catch((err) => {
+    console.log("Database connection failed: " + err.message);
+  });

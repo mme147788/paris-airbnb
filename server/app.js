@@ -8,6 +8,11 @@ app.use(express.json());
 // const listingsRouter = require("./routes/listings.routes");
 // app.use("/api/listings", listingsRouter);
 
+const listingsRouter = require("./routes/listings.routes.js");
+const hostsRouter = require("./routes/hosts.routes.js");
+
+app.use("/api/listings", listingsRouter);
+app.use("/api/hosts", hostsRouter);
 
 // Any other /api path -> 404 as JSON
 app.use("/api", (req, res) => {
